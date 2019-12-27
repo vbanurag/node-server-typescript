@@ -1,6 +1,7 @@
 import * as express from "express";
 import * as bodyParser from "body-parser";
 import * as mongoose from "mongoose";
+import * as cors from "cors";
 
 import { UserRoutes } from "./routes/userRoutes";
 
@@ -19,6 +20,9 @@ class App {
     private config(): void{
         this.app.use(bodyParser.json());
         this.app.use(bodyParser.urlencoded({ extended: false }));
+        this.app.use(cors({
+            origin: "*"
+        }))
     }
 
     private mongoSetup(): void{
