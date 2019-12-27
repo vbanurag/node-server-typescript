@@ -9,8 +9,22 @@ export class UserRoutes {
         app.route('/')
         .get((req: Request, res: Response) => {            
             res.status(200).send({
-                message: 'GET request successfulll!!!!'
+                message: 'Server is running'
             })
         })
+
+        //users
+        app.route('/user')
+        .get(this.userController.getUsers)        
+
+        // POST endpoint
+        .post(this.userController.addUser)
+
+        // user detail
+        app.route('/user/:userId')
+        // get specific user
+        .put(this.userController.updateUser)
+        .delete(this.userController.deleteUser)
+
     }
 }

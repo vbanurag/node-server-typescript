@@ -3,22 +3,14 @@ import * as mongoose from 'mongoose';
 const Schema = mongoose.Schema;
 
 export const UserSchema = new Schema({
-    firstName: {
+    name: {
         type: String,
-        required: 'Enter a first name'
-    },
-    lastName: {
-        type: String,
-        required: 'Enter a first name'
     },
     email: {
         type: String            
     },
     dob: {
-        type: Number            
-    },
-    phone: {
-        type: Number            
+        type: Date            
     },
     created_date: {
         type: Date,
